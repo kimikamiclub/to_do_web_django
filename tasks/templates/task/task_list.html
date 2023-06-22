@@ -1,0 +1,45 @@
+{% block content %}
+<head>
+    <link rel="stylesheet" href="../../static/css/task.css">
+</head>
+<div class="todoer-topbar">
+    <a href="#" class="todoer-icon todoer-home-icon">TODO</a>
+    <a href="create" class="todoer-icon todoer-add-icon" id="add-task-button">New Task</a>
+</div>
+
+<div class="todoer-container">
+    <h2 class="todoer-title">My Tasks</h2>
+    <ul class="todoer-task-list">
+        {% for task in object_list %}
+        <li class="todoer-task">
+            <div class="card">
+
+                <label for="{{ task.id }}" class="todoer-task-label">
+                    <div class="top-bar">
+                        <div class="top-checkbox">
+                            <input type="checkbox" id="{{ task.id }}" class="todoer-task-checkbox">
+                                 <h3 class="todoer-task-title">{{ task.title }}</h3>
+                        </div>
+                        <div class="todoer-task-buttons">
+                            <button class="todoer-task-button todoer-task-delete-button">Edit <a
+                                    href="todo/update"></a></button>
+                            <button class="todoer-task-button todoer-task-delete-button">Delete <a
+                                    href="todo/delete"></a></button>
+                        </div>
+                    </div>
+
+                    <p class="todoer-task-description">{{ task.description }}</p>
+                    <p class="todoer-task-due-date">Due Date: {{ task.due_date }}</p>
+                    <p class="todoer-task-status">Status: {{ task.status }}</p>
+                    <p class="todoer-task-category">Category: {{ task.category }}</p>
+
+                </label>
+            </div>
+
+
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+
+{% endblock %}

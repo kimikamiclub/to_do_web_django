@@ -1,0 +1,16 @@
+{% block content %}
+<head>
+    <link rel="stylesheet" href="../../static/css/task.css">
+</head>
+<div class="todoer-topbar"></div></head>
+<div class="todoer-container">
+    <h2 class="todoer-title">What's To Be Done? Create Now</h2>
+    <form class="todoer-form" method="post">
+        {% csrf_token %}
+        <div class="todoer-input-group">
+            {{ form.as_p }}
+        </div>
+        <button class="todoer-submit-button" type="submit">Submit</button>
+    </form>
+</div>
+{% endblock %}
